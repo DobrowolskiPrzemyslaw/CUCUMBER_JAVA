@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import java.util.concurrent.TimeUnit;
 
 public class Contact_Us_Steps {
 
@@ -25,10 +26,13 @@ public class Contact_Us_Steps {
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(60, TimeUnit.SECONDS);
     }
 
     @After
     public void tearDown(){
+        driver.manage().deleteAllCookies();
         driver.close();
     }
 
