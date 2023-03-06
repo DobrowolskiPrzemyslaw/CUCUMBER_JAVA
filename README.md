@@ -1,2 +1,2 @@
-# Cucumber_java17
+# CUCUMBER_JAVA
 Simple cucumber project
